@@ -1,0 +1,49 @@
+bold-as-love/
+│
+├── components/
+│   ├── layout/
+│   │   ├── Header.js
+│   │   ├── Footer.js
+│   │   └── Navigation.js
+│   ├── decades/
+│   │   ├── FiftiesTheme.js
+│   │   ├── SixtiesTheme.js
+│   │   └── ... (other decade components)
+│   ├── ui/
+│   │   ├── Button.js
+│   │   ├── Card.js
+│   │   └── Modal.js
+│   └── features/
+│       ├── SpotifyPlaylist.js
+│       ├── BookingForm.js
+│       └── TestimonialCarousel.js
+│
+├── pages/
+│   ├── index.js
+│   ├── about.js
+│   ├── services.js
+│   ├── gallery.js
+│   └── contact.js
+│
+├── styles/
+│   ├── global.css
+│   └── themes/
+│       ├── fifties.css
+│       ├── sixties.css
+│       └── ... (other decade themes)
+│
+├── utils/
+│   ├── spotifyAuth.js
+│   ├── themeContext.js
+│   └── apiHelpers.js
+│
+├── public/
+│   ├── images/
+│   └── videos/
+│
+├── context/
+│   └── ThemeContext.js
+│
+└── hooks/
+    ├── useSpotify.js
+    └── useBooking.js
