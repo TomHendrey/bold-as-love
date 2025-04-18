@@ -12,9 +12,9 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
     const { theme, currentDecade } = useTheme();
 
     return (
-        <div className={`min-h-screen bg-gray-900 text-white transition-colors duration-500`}>
+        <div className={`min-h-screen bg-[#0d1117] text-white transition-colors duration-500`}>
             {/* Simple header with just navigation */}
-            <header className={`p-4 ${theme.primary}`}>
+            <header className={`p-4 bg-[#0a0c10] border-b border-gray-800`}>
                 <div className="container mx-auto flex justify-end">
                     <nav className="hidden md:block">
                         {/* nav bar */}
@@ -74,12 +74,12 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                         <h2 className="text-center text-xl mb-2">Select A Decade</h2>
                         <DecadeSwitcher />
                     </div>
-                    <main className={`p-4 ${theme.text}`}>{children}</main>
+                    <main className={`p-4 ${theme.text} min-h-[80vh]`}>{children}</main>
                 </div>
             </div>
 
             {/* Footer */}
-            <footer className={`p-4 ${theme.primary}`}>
+            <footer className={`p-4 bg-[#0a0c10] border-t border-gray-800`}>
                 <div className="container mx-auto text-center">
                     <p>© {new Date().getFullYear()} Bold As Love Wedding Band</p>
                     <p className="text-sm mt-2">@boldaslove.music</p>

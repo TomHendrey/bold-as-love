@@ -18,6 +18,7 @@ const DecadeSwitcher: React.FC = () => {
         '2020s': 'text-pink-400 border border-pink-400',
     };
 
+    // Button JSX
     return (
         <div className="flex flex-wrap gap-2 justify-center p-4">
             {decades.map((decade) => (
@@ -25,7 +26,7 @@ const DecadeSwitcher: React.FC = () => {
                     key={decade}
                     onClick={() => changeDecade(decade)}
                     className={`px-8 py-4 rounded-md transition-all ${
-                        currentDecade === decade ? `bg-gray-800 ${decadeStyles[decade]}` : `bg-gray-700 text-gray-300 hover:bg-gray-600 border-gray-600`
+                        currentDecade === decade ? `bg-[#161b22] ${decadeStyles[decade]}` : `bg-[#0d1117] text-gray-300 hover:bg-[#161b22] border border-gray-700`
                     }`}>
                     {decade}
                 </button>

@@ -66,7 +66,7 @@ const Home: React.FC = () => {
             </section>
 
             <section className="mb-12">
-                <div className="rounded-lg p-6 bg-gray-800 shadow-lg">
+                <div className="rounded-lg p-6 border border-gray-800">
                     <h2 className="text-2xl font-semibold mb-4">Welcome To Bold As Love</h2>
                     <p className="mb-4">With our unique decade-themed approach, we customize each performance to match your musical tastes.</p>
                     <p className="mb-4">{content.description}</p>
@@ -74,7 +74,7 @@ const Home: React.FC = () => {
                 </div>
             </section>
 
-            <section className="mb-12">
+            {/* <section className="mb-12">
                 <h2 className="text-2xl font-semibold mb-4">Featured Performances</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="bg-gray-800 p-4 rounded-lg shadow">
@@ -88,7 +88,7 @@ const Home: React.FC = () => {
                         <p>Friday 13th January, 9pm</p>
                     </div>
                 </div>
-            </section>
+            </section> */}
         </div>
     );
 };
