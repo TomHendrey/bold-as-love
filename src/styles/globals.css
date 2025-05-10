@@ -1,3 +1,69 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
+
+@keyframes neonPulse {
+    0%,
+    100% {
+        box-shadow: 0 0 15px rgba(236, 72, 181, 0.8), 0 0 30px rgba(236, 72, 192, 0.5);
+    }
+    50% {
+        box-shadow: 0 0 20px rgb(236, 72, 195), 0 0 40px rgba(236, 72, 173, 0.7);
+    }
+}
+
+.neon-blue {
+    color: #67e8f9; /* cyan-400*/
+    text-shadow: 0 0 10px rgba(103, 232, 249, 0.8);
+    text-shadow: 0 0 20px rgba(103, 232, 249, 0.5);
+    text-shadow: 0 0 30px rgba(103, 232, 249, 0.3);
+}
+
+/* In src/styles/globals.css */
+@font-face {
+    font-family: 'Brat';
+    src: url('/fonts/Brat.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Dead-Stock';
+    src: url('/fonts/Dead-Stock.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Flash-Back';
+    src: url('/fonts/Flash-Back.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Indelible';
+    src: url('/fonts/Indelible.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Last-Feast';
+    src: url('/fonts/Last-Feast.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Streamster';
+    src: url('/fonts/Streamster.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}

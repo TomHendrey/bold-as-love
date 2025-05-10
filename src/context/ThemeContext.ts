@@ -1,7 +1,15 @@
 import React, { createContext, useState, useContext, ReactNode } from 'react';
 
 // Define types
-export type DecadeType = '1950s' | '1960s' | '1970s' | '1980s' | '1990s' | '2000s' | '2010s' | '2020s';
+export type DecadeType =
+    | '1950s'
+    | '1960s'
+    | '1970s'
+    | '1980s'
+    | '1990s'
+    | '2000s'
+    | '2010s'
+    | '2020s';
 
 interface ThemeColors {
     background: string;
@@ -21,7 +29,16 @@ interface ThemeProviderProps {
 }
 
 // Define available decades
-const decades: DecadeType[] = ['1950s', '1960s', '1970s', '1980s', '1990s', '2000s', '2010s', '2020s'];
+const decades: DecadeType[] = [
+    '1950s',
+    '1960s',
+    '1970s',
+    '1980s',
+    '1990s',
+    '2000s',
+    '2010s',
+    '2020s',
+];
 
 // Themes with basic color schemes
 const decadeThemes: Record<DecadeType, ThemeColors> = {

@@ -18,20 +18,38 @@ const DecadeSwitcher: React.FC = () => {
         '2020s': 'text-pink-400 border border-pink-400',
     };
 
-    // Button JSX
+    // Function for rendering buttons
+
+    const renderDecadeButton = (decade: DecadeType) => {
+        // Determine base button style based on current theme
+
+        const baseButtonStyle =
+            'border border-gray-700 bg-[#0d1117] text-gray-300';
+
+        // Determine selected button style based on current theme
+        const selectedButtonStyle =
+            currentDecade === '1980s'
+                ? 'border-2 border-pink-400 bg-pink-900/25 text-pink-300 shadow-[0_0_15px_rgba(236,72,153,0.8),0_0_30px_rgba(236,72,153,0.5)] animate-[neonPulse_2s_ease-in-out_infinite]'
+                : `bg-[#161b22] ${decadeStyles[decade]}`;
+
+        // Button JSX
+        return (
+            <button
+                key={decade}
+                onClick={() => changeDecade(decade)}
+                className={`px-8 py-4 rounded-md transition-all ${baseButtonStyle} ${
+                    currentDecade === decade ? selectedButtonStyle : ''
+                }`}>
+                {decade}
+            </button>
+        );
+    };
+
     return (
         <div className="flex flex-wrap gap-2 justify-center p-4">
-            {decades.map((decade) => (
-                <button
-                    key={decade}
-                    onClick={() => changeDecade(decade)}
-                    className={`px-8 py-4 rounded-md transition-all ${
-                        currentDecade === decade ? `bg-[#161b22] ${decadeStyles[decade]}` : `bg-[#0d1117] text-gray-300 hover:bg-[#161b22] border border-gray-700`
-                    }`}>
-                    {decade}
-                </button>
-            ))}
+            {decades.map(renderDecadeButton)}
         </div>
     );
 };
+
 export default DecadeSwitcher;
