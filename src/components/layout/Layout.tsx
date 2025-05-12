@@ -91,12 +91,12 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                     <h1 className="text-4xl font-audiowide m-12 text-center">Audiowide - AUDIOWIDE</h1>
                     <p className=" text-4xl text-center m-12 font-inter font-light italic">Bold italic Inter text</p>
                     <p className="text-4xl text-center m-12 font-inter font-light">Light Inter text</p>
-                    <h1 className=" text-5xl text-center m-12 font-dead-stock">Text in Dead Stock font</h1>
-                    <h1 className=" text-5xl text-center m-12 font-brat">Text in Brat font</h1>
-                    <h1 className=" text-5xl text-center m-12 font-flash-back">Text in Flash Back font</h1>
-                    <h1 className=" text-5xl text-center m-12 font-indelible">Text in Indelible font</h1>
-                    <h1 className=" text-5xl text-center m-12 font-last-feast">Text in Last Feast font</h1>
-                    <h1 className=" text-5xl text-center m-12 font-streamster">Text in Streamster font</h1>
+                    <h1 className=" text-5xl text-center m-12 font-dead-stock">Dead</h1>
+                    <h1 className=" text-5xl text-center m-12 font-brat">Brat</h1>
+                    <h1 className=" text-5xl text-center m-12 font-flash-back">Flash Back</h1>
+                    <h1 className=" text-5xl text-center m-12 font-indelible">Indelible</h1>
+                    <h1 className=" text-5xl text-center m-12 font-last-feast">Feast</h1>
+                    <h1 className=" text-5xl text-center m-12 font-streamster">Streamster</h1>
                 </div>
             </div>
 
