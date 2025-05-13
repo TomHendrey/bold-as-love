@@ -118,9 +118,9 @@ const Home: React.FC = () => {
                     </ul>
                 </div>
                 <div className="text-center mt-4">
-                    <button className="px-4 py-2 bg-[#233a86b3] text-white rounded-md hover:bg-[#2ea043] transition-colors">
+                    {/* <button className="px-4 py-2 bg-[#233a86b3] text-white rounded-md hover:bg-[#2ea043] transition-colors">
                         View All Tracks
-                    </button>
+                    </button> */}
                 </div>
             </section>
 
