@@ -14,6 +14,38 @@ const Home: React.FC = () => {
 
     const tracks = decadeTracks[currentDecade];
 
+    // Function to get decade-specific styling
+    const getDecadeStyles = () => {
+        if (currentDecade === '1980s') {
+            return {
+                headerClass: 'font-russo-one text-2xl mb-6 tracking-wider',
+                decadeNumberClass: 'font-russo-one  neon-blue text-[#67e8f9]', // Using neon-blue class and text color
+                decadeSuffixClass:
+                    'font-russo-one  neon-blue text-[#67e8f9] text-xl', // Smaller "s"
+                trackListClass:
+                    'rounded-lg border border-[#ffffff]/30 shadow-lg shadow-pink-900/20 overflow-hidden', // Whiter border color with transparency
+                trackItemClass:
+                    'px-6 py-4 hover:bg-[#ffffff]/5 transition-colors border-b border-[#ffffff]/10', // More transparent hover state
+                trackTitleClass: 'font-russo-one font-semibold text-white', // Softer, whiter color
+                trackArtistClass: 'text-pink-200/70 text-sm mt-1', // Lighter pink for artist
+            };
+        }
+
+        // Default styling for other decades
+        return {
+            headerClass: 'font-inter text-2xl font-semibold mb-6',
+            decadeClass: 'font-inter',
+            trackListClass: 'rounded-lg border border-gray-800',
+            trackItemClass:
+                'px-4 py-3 hover:bg-[#161b22] transition-colors border-b border-gray-800/50',
+            trackTitleClass: 'font-medium',
+            trackArtistClass: 'text-gray-400 text-sm',
+        };
+    };
+
+    // Get the styles based on current decade
+    const styles = getDecadeStyles();
+
     // Decade-specific content
     const decadeContent: Record<DecadeType, DecadeContent> = {
         '1950s': {
@@ -92,35 +124,43 @@ const Home: React.FC = () => {
             </section> */}
 
             <section className="mb-12">
-                <h2 className="text-2xl font-semibold mb-6">
-                    Tracks from the {currentDecade}
+                <h2 className={styles.headerClass}>
+                    Tracks from the{' '}
+                    {currentDecade === '1980s' ? (
+                        <>
+                            <span className={styles.decadeNumberClass}>
+                                {currentDecade.slice(0, 4)}
+                            </span>
+                            <span className={styles.decadeSuffixClass}>s</span>
+                        </>
+                    ) : (
+                        <span>{currentDecade}</span>
+                    )}
                 </h2>
-                <div className="rounded-lg border border-grey-800">
-                    <ul className="divide-y">
+
+                <div className={styles.trackListClass}>
+                    <ul>
                         {tracks.map((track, index) => (
-                            <li
-                                key={index}
-                                className="px-4 py-3 hover:bg[#161b22] transistion-colors">
+                            <li key={index} className={styles.trackItemClass}>
                                 <div className="flex justify-between items-center">
                                     <div>
-                                        <span className="font-medium">
+                                        <div className={styles.trackTitleClass}>
                                             {track.title}
-                                        </span>
-                                        <p className="text-gray-400 text-sm">
+                                        </div>
+                                        <div
+                                            className={styles.trackArtistClass}>
                                             {track.artist}
-                                        </p>
+                                        </div>
                                     </div>
-                                    <div className="text-gray-500"></div>
-                                    {/* Optional: Play button or icon here */}
+                                    {currentDecade === '1980s' && (
+                                        <div className="text-pink-500 opacity-70">
+                                            {/* You could add a cassette or music note icon here */}
+                                        </div>
+                                    )}
                                 </div>
                             </li>
                         ))}
                     </ul>
-                </div>
-                <div className="text-center mt-4">
-                    {/* <button className="px-4 py-2 bg-[#233a86b3] text-white rounded-md hover:bg-[#2ea043] transition-colors">
-                        View All Tracks
-                    </button> */}
                 </div>
             </section>
 

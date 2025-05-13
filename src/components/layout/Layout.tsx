@@ -68,7 +68,12 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
             <div className="py-4">
                 <div className="container mx-auto z-10 relative">
                     <div className="mb-6">
-                        <h2 className="text-6xl m-8 font-flash-back text-center neon-blue">
+                        <h2
+                            className={`  text-center ${
+                                currentDecade === '1980s'
+                                    ? 'm-7 text-6xl font-flash-back neon-blue'
+                                    : 'm-9 text-5xl font-thin opacity-65'
+                            }`}>
                             Select A Decade
                         </h2>
                         <DecadeSwitcher />

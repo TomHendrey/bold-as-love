@@ -13,6 +13,13 @@
     }
 }
 
+.neon-blu-2 {
+    color: #67e8f9; /* cyan-400*/
+    text-shadow: 0 0 10px rgba(25, 93, 251, 0.853);
+    text-shadow: 0 0 20px rgba(103, 232, 249, 0.5);
+    text-shadow: 0 0 30px rgba(103, 232, 249, 0.3);
+}
+
 .neon-blue {
     color: #67e8f9; /* cyan-400*/
     text-shadow: 0 0 10px rgba(103, 232, 249, 0.8);

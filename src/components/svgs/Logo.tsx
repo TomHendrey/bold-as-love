@@ -27,7 +27,7 @@ const Logo: React.FC<LogoProps> = ({ className = 'h-12' }) => {
             case '2010s':
                 return { fill: '#6610f2' };
             case '2020s':
-                return { fill: '#ff69b4' };
+                return { fill: '#ffffff' };
             default:
                 return { fill: '#ffffff' };
         }

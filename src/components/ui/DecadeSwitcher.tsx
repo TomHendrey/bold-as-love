@@ -24,12 +24,12 @@ const DecadeSwitcher: React.FC = () => {
         // Determine base button style based on current theme
 
         const baseButtonStyle =
-            'border border-gray-700 bg-[#0d1117] text-gray-300';
+            'border border-gray-700 bg-[#0d1117] text-gray-300 w-[120px] h-[56px] rounded-md flex items-center justify-center transition-all';
 
         // Determine selected button style based on current theme
         const selectedButtonStyle =
             currentDecade === '1980s'
-                ? 'border-2 border-pink-400 bg-pink-900/25 text-pink-300 shadow-[0_0_15px_rgba(236,72,153,0.8),0_0_30px_rgba(236,72,153,0.5)] animate-[neonPulse_2s_ease-in-out_infinite]'
+                ? 'border-2 z-10 border-pink-400 bg-pink-900/25 text-pink-300 shadow-[0_0_15px_rgba(236,72,153,0.8),0_0_30px_rgba(236,72,153,0.5)] animate-[neonPulse_2s_ease-in-out_infinite]'
                 : `bg-[#161b22] ${decadeStyles[decade]}`;
 
         // Button JSX
