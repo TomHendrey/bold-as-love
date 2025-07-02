@@ -4,7 +4,6 @@ import DecadeSwitcher from '@/components/ui/DecadeSwitcher';
 import Logo from '@/components/svgs/Logo';
 import { useDecadeFonts } from '@/hooks/usDecadeFonts';
 import EightiesBackground from '@/components/backgrounds/EightiesBackground';
-import TestBackground from '../backgrounds/TestBackround';
 
 // children with type ReactNode allows the component to receive and render any valid React content
 interface LayoutProps {
@@ -19,8 +18,6 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         <div
             className={`min-h-screen bg-[#0d1117] text-white transition-colors duration-500`}>
             <EightiesBackground />
-
-            {/* <TestBackground /> */}
 
             {/* Simple header with just navigation */}
             <header className={`p-4 bg-[#0a0c10] border-b border-gray-800`}>
@@ -72,7 +69,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                             className={`  text-center ${
                                 currentDecade === '1980s'
                                     ? 'm-7 text-6xl font-flash-back neon-blue'
-                                    : 'm-9 text-5xl font-thin opacity-65'
+                                    : 'm-9 text-3xl font-orbitron font-thin opacity-65'
                             }`}>
                             Select A Decade
                         </h2>

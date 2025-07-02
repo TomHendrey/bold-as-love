@@ -19,27 +19,33 @@ const Home: React.FC = () => {
         if (currentDecade === '1980s') {
             return {
                 headerClass: 'font-russo-one text-2xl mb-6 tracking-wider',
-                decadeNumberClass: 'font-russo-one  neon-blue text-[#67e8f9]', // Using neon-blue class and text color
+                decadeNumberClass: 'font-russo-one neon-blue text-[#67e8f9]',
                 decadeSuffixClass:
-                    'font-russo-one  neon-blue text-[#67e8f9] text-xl', // Smaller "s"
+                    'font-russo-one neon-blue text-[#67e8f9] text-lg',
+                // More subtle container that lets the grid show through
                 trackListClass:
-                    'rounded-lg border border-[#ffffff]/30 shadow-lg shadow-pink-900/20 overflow-hidden', // Whiter border color with transparency
+                    ' rounded-lg border border-[#67e8f9]/20 overflow-hidden ' +
+                    'bg-[#0a0e14]/60 backdrop-blur-[2px] transition-all duration-700',
+                // Enhanced typography for better readability
                 trackItemClass:
-                    'px-6 py-4 hover:bg-[#ffffff]/5 transition-colors border-b border-[#ffffff]/10', // More transparent hover state
-                trackTitleClass: 'font-russo-one font-semibold text-white', // Softer, whiter color
-                trackArtistClass: 'text-pink-200/70 text-sm mt-1', // Lighter pink for artist
+                    'px-6 py-5 transition-colors border-b border-[#67e8f9]/10 ' + // Increased vertical padding
+                    'hover:bg-[#67e8f9]/5',
+                trackTitleClass:
+                    'font-semibold text-lg text-white tracking-wide',
+                trackArtistClass: 'text-[#f9a8d4]/70 ml-2', // Added margin-left, removed margin-top
             };
         }
 
         // Default styling for other decades
         return {
             headerClass: 'font-inter text-2xl font-semibold mb-6',
-            decadeClass: 'font-inter',
+            decadeNumberClass: 'font-inter',
+            decadeSuffixClass: 'font-inter',
             trackListClass: 'rounded-lg border border-gray-800',
             trackItemClass:
-                'px-4 py-3 hover:bg-[#161b22] transition-colors border-b border-gray-800/50',
+                'px-4 py-4 hover:bg-[#161b22] transition-colors border-b border-gray-800/50', // More padding
             trackTitleClass: 'font-medium',
-            trackArtistClass: 'text-gray-400 text-sm',
+            trackArtistClass: 'text-gray-400 ml-2', // Added margin-left, removed margin-top
         };
     };
 
@@ -106,8 +112,8 @@ const Home: React.FC = () => {
                 {/* <h1 className="text-4xl font-bold mb-4">{content.title}</h1>
                 <p className="text-xl italic">{content.subtitle}</p> */}
             </section>
-
-            {/* <section className="mb-12">
+            <div>
+                {/* <section className="mb-12">
                 <div className="rounded-lg p-6 border border-gray-800">
                     <h2 className="text-2xl font-semibold mb-4">
                         Welcome To Bold As Love
@@ -122,9 +128,10 @@ const Home: React.FC = () => {
                     </button>
                 </div>
             </section> */}
+            </div>
 
             <section className="mb-12">
-                <h2 className={styles.headerClass}>
+                <h2 className={`${styles.headerClass} max-w-4xl mx-auto`}>
                     Tracks from the{' '}
                     {currentDecade === '1980s' ? (
                         <>
@@ -138,23 +145,38 @@ const Home: React.FC = () => {
                     )}
                 </h2>
 
-                <div className={styles.trackListClass}>
+                <div
+                    className={`${styles.trackListClass} max-w-4xl mx-auto`}
+                    style={
+                        currentDecade === '1980s'
+                            ? {
+                                  //   animation:
+                                  //       'borderPulse 4s ease-in-out infinite',
+                                  boxShadow:
+                                      '0 0 15px rgba(103, 232, 249, 0.05), inset 0 0 20px rgba(103, 232, 249, 0.02)',
+                              }
+                            : {}
+                    }>
                     <ul>
                         {tracks.map((track, index) => (
                             <li key={index} className={styles.trackItemClass}>
-                                <div className="flex justify-between items-center">
-                                    <div>
+                                <div className="flex items-center justify-between">
+                                    <div className="flex items-center">
                                         <div className={styles.trackTitleClass}>
                                             {track.title}
                                         </div>
                                         <div
                                             className={styles.trackArtistClass}>
-                                            {track.artist}
+                                            <span className="mx-2 opacity-70">
+                                                ·
+                                            </span>{' '}
+                                            {track.artist}{' '}
+                                            {/* Centered dot with spacing */}
                                         </div>
                                     </div>
                                     {currentDecade === '1980s' && (
-                                        <div className="text-pink-500 opacity-70">
-                                            {/* You could add a cassette or music note icon here */}
+                                        <div className="text-[#67e8f9]/20">
+                                            ♪
                                         </div>
                                     )}
                                 </div>

@@ -3,6 +3,7 @@ import { ThemeProvider } from '@/context/ThemeContext';
 import Layout from '@/components/layout/Layout';
 import { AppProps } from 'next/app';
 import '../styles/globals.css';
+import { useRouter } from 'next/router';
 import {
     Inter, // Default text font for site
     Orbitron, // Nice 80's
@@ -18,7 +19,6 @@ import {
 } from 'next/font/google';
 
 // font configurations
-
 const inter = Inter({
     subsets: ['latin'],
     variable: '--font-inter',
@@ -82,25 +82,34 @@ const audiowide = Audiowide({
 });
 
 function MyApp({ Component, pageProps }: AppProps) {
+
+    const router = useRouter();
+
     return (
         <main
             className={`
                 ${inter.variable}
-      ${orbitron.variable} 
-      ${caveat.variable}
-      ${kalam.variable}
-      ${courgette.variable}
-      ${mrDafoe.variable}
-      ${archivoBlack.variable} 
-      ${russoOne.variable} 
-      ${pressStart.variable} 
-      ${shareTechMono.variable} 
-      ${audiowide.variable}`}>
+                ${orbitron.variable} 
+                ${caveat.variable}
+                ${kalam.variable}
+                ${courgette.variable}
+                ${mrDafoe.variable}
+                ${archivoBlack.variable} 
+                ${russoOne.variable} 
+                ${pressStart.variable} 
+                ${shareTechMono.variable} 
+                ${audiowide.variable}`}>
+
             <ThemeProvider>
-                <Layout>
+                {router.pathname === '/landing' ? (
                     <Component {...pageProps} />
-                </Layout>
+                ) : (
+                    <Layout>
+                        <Component {...pageProps} />
+                    </Layout>
+                )}
             </ThemeProvider>
+
         </main>
     );
 }

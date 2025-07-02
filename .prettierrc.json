@@ -1,13 +1,14 @@
 {
     "trailingComma": "es5",
     "tabWidth": 4,
+    "useTabs": false,
     "semi": true,
     "singleQuote": true,
     "printWidth": 80,
     "jsxBracketSameLine": true,
-    "bracketSameLine": true,
+    "bracketSameLine": false,
     "singleAttributePerLine": false,
     "arrowParens": "always",
-    "flattenTernaries": true,
+    "flattenTernaries": false,
     "endOfLine": "auto"
 }

@@ -15,7 +15,7 @@ const DecadeSwitcher: React.FC = () => {
         '1990s': 'text-green-400 border border-green-400',
         '2000s': 'text-gray-400 border border-gray-400',
         '2010s': 'text-indigo-400 border border-indigo-400',
-        '2020s': 'text-pink-400 border border-pink-400',
+        '2020s': 'text-white-400 border border-white-400',
     };
 
     // Function for rendering buttons
@@ -39,7 +39,8 @@ const DecadeSwitcher: React.FC = () => {
                 onClick={() => changeDecade(decade)}
                 className={`px-8 py-4 rounded-md transition-all ${baseButtonStyle} ${
                     currentDecade === decade ? selectedButtonStyle : ''
-                }`}>
+                }`}
+            >
                 {decade}
             </button>
         );

@@ -90,15 +90,46 @@ const TestBackground = () => {
 
             {/* Horizon line with enhanced glow */}
             <div
-                className="absolute bottom-[40vh] left-0 w-full h-[3px] pointer-events-none opacity-20"
+                className="absolute bottom-[38vh] left-0 w-full h-[3px] pointer-events-none opacity-20"
                 style={{
+                    // current
                     background:
-                        'linear-gradient(to right, #f472b6, #9333ea, #f472b6)',
-                    boxShadow: '0 0 20px 5px rgba(236, 72, 153, 0.9)',
+                        'linear-gradient(to right, #f472b6, #4f46e5, #f472b6)', // Deep indigo middle
+                    boxShadow: '0 0 20px 5px rgba(236, 72, 153, 0.9)', // Pink shadow
+
+                    // Rich Blue
+                    // background:
+                    //     'linear-gradient(to right, #f472b6, #2563eb, #f472b6)', // Rich blue middle
+                    // boxShadow: '0 0 20px 5px rgba(79, 70, 229, 0.9)', // Indigo shadow
+                    // Cyan Accents
+                    // background:
+                    //     'linear-gradient(to right, #f472b6, #06b6d4, #f472b6)', // Cyan middle
+                    // boxShadow: '0 0 20px 5px rgba(6, 182, 212, 0.9)', // Cyan shadow
+                    // Blue to Pink
+                    // background:
+                    //     'linear-gradient(to right, #3b82f6, #ec4899, #3b82f6)', // Blue edges, pink middle
+                    // boxShadow: '0 0 20px 5px rgba(59, 130, 246, 0.9)', // Blue shadow
+                    // Cyan to purple
+                    // background:
+                    //     'linear-gradient(to right, #67e8f9, #9333ea, #67e8f9)', // Cyan edges, purple middle
+                    // boxShadow: '0 0 20px 5px rgba(103, 232, 249, 0.9)', // Cyan shadow
+                    //Neon Blue
+                    // background:
+                    //     'linear-gradient(to right, #38bdf8, #2563eb, #38bdf8)', // Light blue to deep blue
+                    // boxShadow: '0 0 20px 5px rgba(56, 189, 248, 0.9)', // Light blue shad
+                    // Pink-Cyan Blend
+                    // background:
+                    //     'linear-gradient(to right, #ec4899, #22d3ee, #ec4899)', // Pink to cyan
+                    // boxShadow:
+                    //     '0 0 20px 7px rgba(236, 72, 153, 0.7), 0 0 10px 3px rgba(34, 211, 238, 0.7)', // Dual shadow
+                    // Deep Purple-Blue Fusion
+                    // background:
+                    //     'linear-gradient(to right, #c026d3, #1e40af, #c026d3)', // Fuchsia to deep blue
+                    // boxShadow: '0 0 20px 5px rgba(192, 38, 211, 0.8)', // Fuchsia shadow
                 }}></div>
 
             {/* Grid floor - static, extending to horizon */}
-            <div className="absolute bottom-0 left-0 w-full h-[40vh] pointer-events-none">
+            <div className="absolute bottom-0 left-0 w-full h-[38vh] pointer-events-none">
                 <div
                     className="w-full h-full"
                     style={{
@@ -106,7 +137,7 @@ const TestBackground = () => {
                             'linear-gradient(to right, rgba(25, 93, 251, 0.853) 1px, transparent 1px) 0 0 / 50px 50px, linear-gradient(to bottom, rgba(25, 93, 251, 0.853) 1px, transparent 1px) 0 0 / 50px 50px',
                         transform: 'perspective(400px) rotateX(70deg)',
                         transformOrigin: 'top center',
-                        opacity: 0.3,
+                        opacity: 0.25,
                         // animation: 'gridMove 30s infinite linear',
                     }}></div>
             </div>
