@@ -2,24 +2,34 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
+/* Global font smoothing */
+* {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
 @keyframes neonPulse {
+
     0%,
     100% {
         box-shadow: 0 0 15px rgba(236, 72, 181, 0.8),
             0 0 30px rgba(236, 72, 192, 0.5);
     }
+
     50% {
         box-shadow: 0 0 20px rgb(236, 72, 195), 0 0 40px rgba(236, 72, 173, 0.7);
     }
 }
 
 @keyframes borderPulse {
+
     0%,
     100% {
         border-color: rgba(103, 232, 249, 0.2);
         box-shadow: 0 0 15px rgba(103, 232, 249, 0.05),
             inset 0 0 20px rgba(103, 232, 249, 0.05);
     }
+
     50% {
         border-color: rgba(103, 232, 249, 0.3);
         box-shadow: 0 0 20px rgba(103, 232, 249, 0.1),
@@ -28,14 +38,16 @@
 }
 
 .neon-blu-2 {
-    color: #67e8f9; /* cyan-400*/
+    color: #67e8f9;
+    /* cyan-400*/
     text-shadow: 0 0 10px rgba(25, 93, 251, 0.853);
     text-shadow: 0 0 20px rgba(103, 232, 249, 0.5);
     text-shadow: 0 0 30px rgba(103, 232, 249, 0.3);
 }
 
 .neon-blue {
-    color: #67e8f9; /* cyan-400*/
+    color: #67e8f9;
+    /* cyan-400*/
     text-shadow: 0 0 10px rgba(103, 232, 249, 0.8);
     text-shadow: 0 0 20px rgba(103, 232, 249, 0.5);
     text-shadow: 0 0 30px rgba(103, 232, 249, 0.3);
@@ -47,12 +59,9 @@
 }
 
 .grid-floor {
-    background: linear-gradient(
-                to right,
-                rgb(175, 61, 162) 1px,
-                transparent 1px
-            )
-            0 0 / 40px 40px,
+    background: linear-gradient(to right,
+            rgb(175, 61, 162) 1px,
+            transparent 1px) 0 0 / 40px 40px,
         linear-gradient(to bottom, #0ff 1px, transparent 1px) 0 0 / 40px 40px !important;
 }
 

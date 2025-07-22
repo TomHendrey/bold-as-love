@@ -20,32 +20,43 @@ const LandingPage = () => {
                         {/* Background image */}
                         <div className="absolute inset-0">
                             <img
-                                src="/images/band-hero-image.jpg"
+                                src="/images/band-hero-image5.jpg"
                                 alt="professional full band image"
                                 className="w-full h-full object-cover" />
                         </div>
 
                         {/* Content overlay */}
-                        <div className="relative z-10 text-left max-w-2xl ml-14 lg:ml-20">
-                            {/* Logo */}
-                            <div className="mb-12" style={{
-                                // filter: 'drop-shadow(0 0 20px rgba(251, 191, 36, 0.8)) drop-shadow(0 0 40px rgba(251, 191, 36, 0.3)'
-                            }}>
+                        <div className="relative z-10 ml-16 lg:ml-60">
+                            {/* Logo container - fixed width for consistent centering */}
+                            <div className="mb-10 flex justify-center w-[490px]" >
                                 <LogoGold className='h-64 lg:h-80' />
                             </div>
 
-                            {/* Text content */}
-                            <h1 className="font-stix-two-text text-3xl lg:text-5xl mb-8 leading-tight text-white italic">
-                                The Soundtrack to your perfect day ...
-                            </h1>
+                            {/* Text content - same max width */}
+                            <div className="text-left w-[490px]" >
+                                <h1 className="font-stix-two-text text-3xl lg:text-5xl mb-8 text-white italic"
+                                    style={{ lineHeight: '1.2' }}
+                                >
+                                    The Soundtrack to your perfect day...
+                                </h1>
 
-                            <p className='font-open-sans text-xl lg:text-2xl text-gray-200 mb-12 font-light max-w-2xl' >
-                                Professional Wedding Band bringing decades of music to life for your celebration
-                            </p>
+                                <p className='font-open-sans text-xl lg:text-1xl text-gray-200 mb-12 w-[510px] leading-relaxed' style={{
+                                    transform: 'scaleX(0.95)',
+                                    transformOrigin: 'left'
+                                }}>
+                                    Bold As Love are a professional wedding and function band bringing decades of music to life for your celebration
+                                </p>
+                                <div className='text-center'>
+                                    <button className="bg-gradient-to-r from-black/30 to-transparent border-2 border-white text-white px-8 py-4 rounded-2xl text-3xl font-stix-two-text hover:bg-white hover:text-gray-900 transition-all duration-300"
+                                        style={{
+                                            transform: 'scaleX(0.95)'
 
-                            <button className="bg-gradient-to-r from-slate-800 to-slate-900 hover:from-slate-700 hover:to-slate-800 text-amber-200 px-10 py-4 rounded-lg text-lg font-medium shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 border border-amber-300/30">
-                                Get Your Quote
-                            </button>
+                                        }}>
+                                        Get Your Quote
+                                    </button>
+                                </div>
+
+                            </div>
                         </div>
                     </section>
                 </main>
@@ -54,7 +65,7 @@ const LandingPage = () => {
                 <footer>
                     <p>Contact us for bookings</p>
                 </footer>
-            </div>
+            </div >
         </>
 
     )
