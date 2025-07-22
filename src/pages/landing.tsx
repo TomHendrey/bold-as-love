@@ -1,6 +1,6 @@
-
 import Head from 'next/head';
-import Logo from '@/components/svgs/Logo';
+//import Logo from '@/components/svgs/Logo';
+import LogoGold from '@/components/svgs/logos/LogoGold';
 
 const LandingPage = () => {
     return (
@@ -20,28 +20,26 @@ const LandingPage = () => {
                         {/* Background image */}
                         <div className="absolute inset-0">
                             <img
-                                src="/images/french-horn.png"
-                                alt="professional musician with french horn"
+                                src="/images/band-hero-image.jpg"
+                                alt="professional full band image"
                                 className="w-full h-full object-cover" />
-                            {/* Dark overlay for text readability */}
-                            <div className="absolute inset-0 bg-black/40"></div>
                         </div>
 
                         {/* Content overlay */}
                         <div className="relative z-10 text-left max-w-2xl ml-14 lg:ml-20">
                             {/* Logo */}
                             <div className="mb-12" style={{
-                                filter: 'drop-shadow(0 0 20px rgba(251, 191, 36, 0.8)) drop-shadow(0 0 40px rgba(251, 191, 36, 0.3)'
+                                // filter: 'drop-shadow(0 0 20px rgba(251, 191, 36, 0.8)) drop-shadow(0 0 40px rgba(251, 191, 36, 0.3)'
                             }}>
-                                <Logo className='h-64 lg:h-80' />
+                                <LogoGold className='h-64 lg:h-80' />
                             </div>
 
                             {/* Text content */}
-                            <h1 className="text-3xl lg:text-5xl mb-8 leading-tight text-white" style={{ fontFamily: 'Georgia, serif' }}>
-                                The soundtrack to your perfect day
+                            <h1 className="font-stix-two-text text-3xl lg:text-5xl mb-8 leading-tight text-white italic">
+                                The Soundtrack to your perfect day ...
                             </h1>
 
-                            <p className='text-xl lg:text-2xl text-gray-200 mb-12 font-light max-w-2xl'>
+                            <p className='font-open-sans text-xl lg:text-2xl text-gray-200 mb-12 font-light max-w-2xl' >
                                 Professional Wedding Band bringing decades of music to life for your celebration
                             </p>
 

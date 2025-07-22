@@ -4,6 +4,7 @@ import DecadeSwitcher from '@/components/ui/DecadeSwitcher';
 import Logo from '@/components/svgs/Logo';
 import { useDecadeFonts } from '@/hooks/usDecadeFonts';
 import EightiesBackground from '@/components/backgrounds/EightiesBackground';
+import Navigation from '@/components/navigation/Navigation';
 
 // children with type ReactNode allows the component to receive and render any valid React content
 interface LayoutProps {
@@ -19,44 +20,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
             className={`min-h-screen bg-[#0d1117] text-white transition-colors duration-500`}>
             <EightiesBackground />
 
-            {/* Simple header with just navigation */}
-            <header className={`p-4 bg-[#0a0c10] border-b border-gray-800`}>
-                <div className="container mx-auto flex justify-end">
-                    <nav className={`hidden md:block ${fonts.body}`}>
-                        {/* nav bar */}
-                        <ul className="flex space-x-6">
-                            {/* <li>
-                                <a href="/" className="hover:underline">
-                                    Home
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/about" className="hover:underline">
-                                    About
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/services" className="hover:underline">
-                                    Services
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/gallery" className="hover:underline">
-                                    Gallery
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/contact" className="hover:underline">
-                                    Contact
-                                </a>
-                            </li> */}
-                        </ul>
-                    </nav>
-                    <div className="block md:hidden">
-                        <button className="text-white">Menu</button>
-                    </div>
-                </div>
-            </header>
+            <Navigation />
             {/* Logo section */}
             <div className="flex justify-center py-8 overflow-visible">
                 <Logo className="h-[28rem] overflow-visible " />
@@ -66,11 +30,10 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                 <div className="container mx-auto z-10 relative">
                     <div className="mb-6">
                         <h2
-                            className={`  text-center ${
-                                currentDecade === '1980s'
-                                    ? 'm-7 text-6xl font-flash-back neon-blue'
-                                    : 'm-9 text-3xl font-orbitron font-thin opacity-65'
-                            }`}>
+                            className={`  text-center ${currentDecade === '1980s'
+                                ? 'm-7 text-6xl font-flash-back neon-blue'
+                                : 'm-9 text-3xl font-orbitron font-thin opacity-65'
+                                }`}>
                             Select A Decade
                         </h2>
                         <DecadeSwitcher />

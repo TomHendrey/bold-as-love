@@ -8,6 +8,8 @@ module.exports = {
     theme: {
         extend: {
             fontFamily: {
+                'stix-two-text': ['var(--font-stix-two-text)', 'serif'],
+                'open-sans': ['var(--font-open-sans)', 'sans-serif'],
                 inter: ['var(--font-inter)', 'sans-serif'], // Default text
                 orbitron: ['var(--font-orbitron)', 'sans-serif'], // Nice 80's
                 caveat: ['var(--font-caveat)', 'cursive'], // Thin clean 80s

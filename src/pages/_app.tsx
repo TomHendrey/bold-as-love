@@ -16,7 +16,22 @@ import {
     Press_Start_2P, // Arcade style
     Share_Tech_Mono, // Nice 80's mono spaced
     Audiowide, // Elegant 80s Art Deco style
+    STIX_Two_Text, // Elegant font for headings
+    Open_Sans, // Main text for the default page style
 } from 'next/font/google';
+
+const openSans = Open_Sans({
+    subsets: ['latin'],
+    variable: '--font-open-sans',
+    weight: ['300', '400', '600', '700']  // Light, Regular, Semibold, Bold
+});
+
+const stixTwoText = STIX_Two_Text({
+    subsets: ['latin'],
+    variable: '--font-stix-two-text',
+    weight: ['400', '500', '600', '700'],  // Regular, Medium, Semibold, Bold
+    style: ['normal', 'italic']           // Both normal and italic
+});
 
 // font configurations
 const inter = Inter({
@@ -98,7 +113,10 @@ function MyApp({ Component, pageProps }: AppProps) {
                 ${russoOne.variable} 
                 ${pressStart.variable} 
                 ${shareTechMono.variable} 
-                ${audiowide.variable}`}>
+                ${audiowide.variable}
+                ${stixTwoText.variable}
+                ${openSans.variable}
+            `}>
 
             <ThemeProvider>
                 {router.pathname === '/landing' ? (

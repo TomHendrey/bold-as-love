@@ -150,11 +150,11 @@ const Home: React.FC = () => {
                     style={
                         currentDecade === '1980s'
                             ? {
-                                  //   animation:
-                                  //       'borderPulse 4s ease-in-out infinite',
-                                  boxShadow:
-                                      '0 0 15px rgba(103, 232, 249, 0.05), inset 0 0 20px rgba(103, 232, 249, 0.02)',
-                              }
+                                //   animation:
+                                //       'borderPulse 4s ease-in-out infinite',
+                                boxShadow:
+                                    '0 0 15px rgba(103, 232, 249, 0.05), inset 0 0 20px rgba(103, 232, 249, 0.02)',
+                            }
                             : {}
                     }>
                     <ul>
