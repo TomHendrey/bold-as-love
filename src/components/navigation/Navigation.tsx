@@ -1,9 +1,9 @@
 import React from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import NavLogo from '@/components/svgs/NavLogo';
 
 const Navigation: React.FC = () => {
-
     const router = useRouter();
     const isHomePage = router.pathname === '/';
 
@@ -13,11 +13,11 @@ const Navigation: React.FC = () => {
             : 'bg-[#0a0c10] border-b border-gray-800 px-4 py-4'
             }`
         } >
-            <div className='container mx-auto flex justify-between items-center'>
+            <div className='container mx-auto flex justify-between items-center pl-2 pr-4'>
 
                 {/* logo/Band */}
-                <Link href="/" className='text-xl font-orbitron tecxt-white hover:text-gray-300'>
-                    Bold As Love
+                <Link href="/" className='text-white hover:text-gray-300 transition-colors -ml-10'>
+                    <NavLogo className="h-8 md:h-10" />
                 </Link>
 
                 {/* Navigation Links */}
