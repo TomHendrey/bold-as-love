@@ -119,13 +119,9 @@ function MyApp({ Component, pageProps }: AppProps) {
             `}>
 
             <ThemeProvider>
-                {router.pathname === '/landing' ? (
+                <Layout>
                     <Component {...pageProps} />
-                ) : (
-                    <Layout>
-                        <Component {...pageProps} />
-                    </Layout>
-                )}
+                </Layout>
             </ThemeProvider>
 
         </main>

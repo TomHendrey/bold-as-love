@@ -1,208 +1,60 @@
-import React from 'react';
-import { useTheme, DecadeType } from '@/context/ThemeContext';
-import { decadeTracks, Track } from '@/data/tracks';
+import Head from 'next/head';
+import LogoGold from '@/components/svgs/logos/LogoGold';
 
-// Define the type for decade-specific content
-interface DecadeContent {
-    title: string;
-    subtitle: string;
-    description: string;
-}
-const Home: React.FC = () => {
-    // Access the current decade from our theme context
-    const { currentDecade } = useTheme();
-
-    const tracks = decadeTracks[currentDecade];
-
-    // Function to get decade-specific styling
-    const getDecadeStyles = () => {
-        if (currentDecade === '1980s') {
-            return {
-                headerClass: 'font-russo-one text-2xl mb-6 tracking-wider',
-                decadeNumberClass: 'font-russo-one neon-blue text-[#67e8f9]',
-                decadeSuffixClass:
-                    'font-russo-one neon-blue text-[#67e8f9] text-lg',
-                // More subtle container that lets the grid show through
-                trackListClass:
-                    ' rounded-lg border border-[#67e8f9]/20 overflow-hidden ' +
-                    'bg-[#0a0e14]/60 backdrop-blur-[2px] transition-all duration-700',
-                // Enhanced typography for better readability
-                trackItemClass:
-                    'px-6 py-5 transition-colors border-b border-[#67e8f9]/10 ' + // Increased vertical padding
-                    'hover:bg-[#67e8f9]/5',
-                trackTitleClass:
-                    'font-semibold text-lg text-white tracking-wide',
-                trackArtistClass: 'text-[#f9a8d4]/70 ml-2', // Added margin-left, removed margin-top
-            };
-        }
-
-        // Default styling for other decades
-        return {
-            headerClass: 'font-inter text-2xl font-semibold mb-6',
-            decadeNumberClass: 'font-inter',
-            decadeSuffixClass: 'font-inter',
-            trackListClass: 'rounded-lg border border-gray-800',
-            trackItemClass:
-                'px-4 py-4 hover:bg-[#161b22] transition-colors border-b border-gray-800/50', // More padding
-            trackTitleClass: 'font-medium',
-            trackArtistClass: 'text-gray-400 ml-2', // Added margin-left, removed margin-top
-        };
-    };
-
-    // Get the styles based on current decade
-    const styles = getDecadeStyles();
-
-    // Decade-specific content
-    const decadeContent: Record<DecadeType, DecadeContent> = {
-        '1950s': {
-            title: "Rock 'n' Roll Rebellion",
-            subtitle: 'Classic tunes that started it all',
-            description:
-                "Transport your guests back to the birth of rock 'n' roll with our authentic 50s sound. From Chuck Berry to Elvis Presley, we recreate the music that changed the world.",
-        },
-        '1960s': {
-            title: 'Psychedelic Revolution',
-            subtitle: 'Peace, love, and unforgettable music',
-            description:
-                'Experience the sounds of Hendrix, The Beatles, and the Summer of Love. Our 60s repertoire captures the spirit of a generation that redefined music forever.',
-        },
-        '1970s': {
-            title: 'Disco Dynamite',
-            subtitle: 'Get down and boogie',
-            description:
-                "Turn your reception into Studio 54 with our authentic disco sound. From ABBA to the Bee Gees, we'll keep your dance floor packed all night long.",
-        },
-        '1980s': {
-            title: 'Neon Nights',
-            subtitle: 'Big hair, big sound',
-            description:
-                "Synth-pop, new wave, and hair metal - our 80s set brings the energy of MTV's golden era to your special day.",
-        },
-        '1990s': {
-            title: 'Alternative Edge',
-            subtitle: 'When music got real',
-            description:
-                'From grunge to Britpop, our 90s selections capture the raw energy and authenticity that defined the decade.',
-        },
-        '2000s': {
-            title: 'Digital Fusion',
-            subtitle: 'Where genres collide',
-            description:
-                'Pop punk, R&B, indie rock - the 2000s had it all, and so do we. Our millennial playlist bridges the gap between classic and contemporary.',
-        },
-        '2010s': {
-            title: 'Minimalist Pulse',
-            subtitle: 'Modern classics for modern celebrations',
-            description:
-                'From Adele to Arctic Monkeys, our 2010s collection features the songs that will be remembered for generations.',
-        },
-        '2020s': {
-            title: 'Hybrid Reality',
-            subtitle: "Tomorrow's classics today",
-            description:
-                "The newest hits with timeless appeal - our contemporary selections showcase the best of today's music scene.",
-        },
-    };
-
-    const content = decadeContent[currentDecade];
-
+const Home = () => {
     return (
-        <div className="max-w-4xl mx-auto">
-            <section className="text-center mb-12">
-                {/* <h1 className="text-4xl font-bold mb-4">{content.title}</h1>
-                <p className="text-xl italic">{content.subtitle}</p> */}
-            </section>
-            <div>
-                {/* <section className="mb-12">
-                <div className="rounded-lg p-6 border border-gray-800">
-                    <h2 className="text-2xl font-semibold mb-4">
-                        Welcome To Bold As Love
-                    </h2>
-                    <p className="mb-4">
-                        With our unique decade-themed approach, we customize
-                        each performance to match your musical tastes.
-                    </p>
-                    <p className="mb-4">{content.description}</p>
-                    <button className="px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors">
-                        Book Now
-                    </button>
-                </div>
-            </section> */}
-            </div>
+        <>
+            <Head>
+                <title>Bold As Love - Wedding Band</title>
+            </Head>
+            <div className='min-h-screen bg-[#0d1117] text-white'>
 
-            <section className="mb-12">
-                <h2 className={`${styles.headerClass} max-w-4xl mx-auto`}>
-                    Tracks from the{' '}
-                    {currentDecade === '1980s' ? (
-                        <>
-                            <span className={styles.decadeNumberClass}>
-                                {currentDecade.slice(0, 4)}
-                            </span>
-                            <span className={styles.decadeSuffixClass}>s</span>
-                        </>
-                    ) : (
-                        <span>{currentDecade}</span>
-                    )}
-                </h2>
-
-                <div
-                    className={`${styles.trackListClass} max-w-4xl mx-auto`}
-                    style={
-                        currentDecade === '1980s'
-                            ? {
-                                //   animation:
-                                //       'borderPulse 4s ease-in-out infinite',
-                                boxShadow:
-                                    '0 0 15px rgba(103, 232, 249, 0.05), inset 0 0 20px rgba(103, 232, 249, 0.02)',
-                            }
-                            : {}
-                    }>
-                    <ul>
-                        {tracks.map((track, index) => (
-                            <li key={index} className={styles.trackItemClass}>
-                                <div className="flex items-center justify-between">
-                                    <div className="flex items-center">
-                                        <div className={styles.trackTitleClass}>
-                                            {track.title}
-                                        </div>
-                                        <div
-                                            className={styles.trackArtistClass}>
-                                            <span className="mx-2 opacity-70">
-                                                ·
-                                            </span>{' '}
-                                            {track.artist}{' '}
-                                            {/* Centered dot with spacing */}
-                                        </div>
-                                    </div>
-                                    {currentDecade === '1980s' && (
-                                        <div className="text-[#67e8f9]/20">
-                                            ♪
-                                        </div>
-                                    )}
+                <main>
+                    <section className="min-h-screen relative flex items-center justify-start px-8 lg:px-16">
+                        {/* Background image */}
+                        <div className="absolute inset-0">
+                            <img
+                                src="/images/band-hero-image5.jpg"
+                                alt="professional full band image"
+                                className="w-full h-full object-cover" />
+                        </div>
+                        {/* Content overlay */}
+                        <div className="relative z-10 ml-16 lg:ml-60">
+                            {/* Logo container - fixed width for consistent centering */}
+                            <div className="mb-10 flex justify-center w-[490px]" >
+                                <LogoGold className='h-64 lg:h-80' />
+                            </div>
+                            {/* Text content - same max width */}
+                            <div className="text-left w-[490px]" >
+                                <h1 className="font-stix-two-text text-3xl lg:text-5xl mb-8 text-white italic"
+                                    style={{ lineHeight: '1.2' }}
+                                >
+                                    The Soundtrack to Your Perfect Day...
+                                </h1>
+                                <p className='font-open-sans text-xl lg:text-1xl text-gray-200 mb-12 w-[510px] leading-relaxed' style={{
+                                    transform: 'scaleX(0.95)',
+                                    transformOrigin: 'left'
+                                }}>
+                                    Bold As Love are a professional wedding and function band bringing decades of music to life for your celebration
+                                </p>
+                                <div className='text-center'>
+                                    <button className="bg-gradient-to-r from-black/30 to-transparent border-2 border-white text-white px-8 py-4 rounded-2xl text-3xl font-stix-two-text hover:bg-white hover:text-gray-900 transition-all duration-300"
+                                        style={{
+                                            transform: 'scaleX(0.95)'
+                                        }}>
+                                        Get Your Quote
+                                    </button>
                                 </div>
-                            </li>
-                        ))}
-                    </ul>
-                </div>
-            </section>
-
-            {/* <section className="mb-12">
-                <h2 className="text-2xl font-semibold mb-4">Featured Performances</h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div className="bg-gray-800 p-4 rounded-lg shadow">
-                        <div className="h-40 bg-gray-700 rounded mb-2"></div>
-                        <h3 className="font-bold">O'Neils - Blackheath</h3>
-                        <p>Saturday 7th December, 8pm</p>
-                    </div>
-                    <div className="bg-gray-800 p-4 rounded-lg shadow">
-                        <div className="h-40 bg-gray-700 rounded mb-2"></div>
-                        <h3 className="font-bold">The Ivy House</h3>
-                        <p>Friday 13th January, 9pm</p>
-                    </div>
-                </div>
-            </section> */}
-        </div>
-    );
+                            </div>
+                        </div>
+                    </section>
+                </main>
+                {/* <footer> */}
+                {/*     <p>Contact us for bookings</p> */}
+                {/* </footer> */}
+            </div >
+        </>
+    )
 };
 
 export default Home;

@@ -1,10 +1,9 @@
 import React, { ReactNode } from 'react';
 import { useTheme } from '@/context/ThemeContext';
 import DecadeSwitcher from '@/components/ui/DecadeSwitcher';
-import Logo from '@/components/svgs/Logo';
-import { useDecadeFonts } from '@/hooks/usDecadeFonts';
-import EightiesBackground from '@/components/backgrounds/EightiesBackground';
+
 import Navigation from '@/components/navigation/Navigation';
+import { useRouter } from 'next/router';
 
 // children with type ReactNode allows the component to receive and render any valid React content
 interface LayoutProps {
@@ -13,102 +12,31 @@ interface LayoutProps {
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
     const { theme, currentDecade } = useTheme();
-    const fonts = useDecadeFonts();
+    const router = useRouter();
+    const isHomePage = router.pathname === '/';
+
+    if (isHomePage) {
+        // Home page: just Navigation + children (no container/footer)
+        return (
+            <div className="min-h-screen bg-[#0d1117] text-white">
+                <Navigation />
+                {children}
+            </div>
+        );
+    }
+
 
     return (
-        <div
-            className={`min-h-screen bg-[#0d1117] text-white transition-colors duration-500`}>
-            <EightiesBackground />
-
+        <div className="min-h-screen bg-[#0d1117] text-white">
             <Navigation />
-            {/* Logo section */}
-            <div className="flex justify-center py-8 overflow-visible">
-                <Logo className="h-[28rem] overflow-visible " />
-            </div>
-            {/* Main content area */}
-            <div className="py-4">
-                <div className="container mx-auto z-10 relative">
-                    <div className="mb-6">
-                        <h2
-                            className={`  text-center ${currentDecade === '1980s'
-                                ? 'm-7 text-6xl font-flash-back neon-blue'
-                                : 'm-9 text-3xl font-orbitron font-thin opacity-65'
-                                }`}>
-                            Select A Decade
-                        </h2>
-                        <DecadeSwitcher />
-                        <div className="mx-auto max-w-4xl">
-                            {/* <h1 className="text-4xl font-gloria-hallelujah m-12 text-center">Bold As Love</h1>
+            <main className="container mx-auto p-4">
+                {children}
+            </main>
 
-                            <p className="text-left text-2xl leading-relaxed font-audiowide mb-8">
-                                Bold As Love is a premier wedding band that brings the best music from every era to your
-                                special day. With our unique decade-themed approach, we create unforgettable
-                                performances that perfectly match your musical tastes. Whether you want the raw energy
-                                of 80s rock, the smooth grooves of 70s disco, or the timeless classics of the 60s, we
-                                deliver an authentic experience that keeps your guests dancing all night long.
-                            </p> */}
-                        </div>
-                    </div>
-                    <main
-                        className={`p-4 ${theme.text} min-h-[80vh] font-inter`}>
-                        {children}
-                    </main>
-                    <h1 className="text-4xl font-orbitron m-12 text-center">
-                        Orbitron - ORBITRON
-                    </h1>
-                    <h1 className="text-4xl font-caveat m-12 text-center">
-                        Caveat - CAVEAT
-                    </h1>
-                    <h1 className="text-4xl font-kalam m-12 text-center">
-                        Kalam - KALAM
-                    </h1>
-                    <h1 className="text-4xl font-courgette m-12 text-center">
-                        Courgette - GOURGETTE
-                    </h1>
-                    <h1 className="text-4xl font-mr-dafoe m-12 text-center">
-                        Mr Defoe - MR DEFOE
-                    </h1>
-                    <h1 className="text-4xl font-russo-one m-12 text-center">
-                        Russo One - RUSSO ONE
-                    </h1>
-                    <h1 className="text-3xl font-press-start m-12 text-center">
-                        Prees Start - PRESS START
-                    </h1>
-                    <h1 className="text-4xl font-share-tech-mono m-12 text-center">
-                        Share Tech Mono - SHARE TECH MONO
-                    </h1>
-                    <h1 className="text-4xl font-audiowide m-12 text-center">
-                        Audiowide - AUDIOWIDE
-                    </h1>
-                    <p className=" text-4xl text-center m-12 font-inter font-light italic">
-                        Bold italic Inter text
-                    </p>
-                    <p className="text-4xl text-center m-12 font-inter font-light">
-                        Light Inter text
-                    </p>
-                    <h1 className=" text-5xl text-center m-12 font-dead-stock">
-                        Dead
-                    </h1>
-                    <h1 className=" text-5xl text-center m-12 font-brat">
-                        Brat
-                    </h1>
-                    <h1 className=" text-5xl text-center m-12 font-flash-back">
-                        Flash Back
-                    </h1>
-                    <h1 className=" text-5xl text-center m-12 font-indelible">
-                        Indelible
-                    </h1>
-                    <h1 className=" text-5xl text-center m-12 font-last-feast">
-                        Feast
-                    </h1>
-                    <h1 className=" text-5xl text-center m-12 font-streamster">
-                        Streamster
-                    </h1>
-                </div>
-            </div>
+
             {/* Footer */}
             <footer
-                className={`p-4 bg-[#0a0c10] border-t border-gray-800 ${fonts.body}`}>
+                className={`p-4 bg-[#0a0c10] border-t border-gray-800 font-inter`}>
                 <div className="container mx-auto text-center">
                     <p>
                         © {new Date().getFullYear()} Bold As Love Wedding Band
@@ -116,7 +44,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                     <p className="text-sm mt-2">@boldaslove.music</p>
                 </div>
             </footer>
-        </div>
+        </div >
     );
 };
 export default Layout;

@@ -1,13 +1,22 @@
 import React from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 const Navigation: React.FC = () => {
+
+    const router = useRouter();
+    const isHomePage = router.pathname === '/';
+
     return (
-        <nav className='bg-[#0a0c10] border-b border-r-gray-800 px-4 py-4'>
-            <div className='container mx-auto flex justify-between intems-center'>
+        <nav className={`font-open-sans ${isHomePage
+            ? 'absolute top-0 left-0 right-0 z-20 bg-black/15 drop-blur-sm border-b border-white/20 px-4 py-4'
+            : 'bg-[#0a0c10] border-b border-gray-800 px-4 py-4'
+            }`
+        } >
+            <div className='container mx-auto flex justify-between items-center'>
 
                 {/* logo/Band */}
-                <Link href="/" className='text-xl font-bold tec=xt-white hover:text-gray-300'>
+                <Link href="/" className='text-xl font-orbitron tecxt-white hover:text-gray-300'>
                     Bold As Love
                 </Link>
 
@@ -17,6 +26,9 @@ const Navigation: React.FC = () => {
                     <Link href="/" className="text-white hover:text-gray-300 transition-colors">
                         Home
 
+                    </Link>
+                    <Link href="/music" className="text-white hover:text-gray-300 transition-colors">
+                        Music
                     </Link>
 
                     <Link href="/about" className="text-white hover:text-gray-300 transition-colors">
@@ -44,7 +56,7 @@ const Navigation: React.FC = () => {
 
             </div>
 
-        </nav>
+        </nav >
     );
 };
 
