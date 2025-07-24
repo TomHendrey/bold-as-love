@@ -1,4 +1,5 @@
 {
+    "printWidth": 80,
     "trailingComma": "es5",
     "tabWidth": 4,
     "useTabs": false,
@@ -10,5 +11,6 @@
     "singleAttributePerLine": false,
     "arrowParens": "always",
     "flattenTernaries": false,
-    "endOfLine": "auto"
+    "endOfLine": "auto",
+    "plugins": ["prettier-plugin-tailwindcss"]
 }
